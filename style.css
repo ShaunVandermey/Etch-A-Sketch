@@ -1,0 +1,17 @@
+.mainDrawBoxes{
+    display: grid;
+    column-count: 4;
+}
+
+.simpleBorder{
+    margin: 50px;
+    border-width: 2px;
+    border-color: red;
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+}
+
+.black{
+    background-color: black;
+}
