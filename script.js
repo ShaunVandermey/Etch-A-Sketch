@@ -1,9 +1,29 @@
 const mainBox = document.querySelector(".mainDrawBoxes");
 console.log(mainBox);
 let boxes = [];
-let initialBoxNum = 100;
+
+let horizontalBoxNum = 5;
+let verticalBoxNum = 5;
+let initialBoxNum = verticalBoxNum * horizontalBoxNum;
 let isMouseDown = false;
-mainBox.onmouseup = dontColour();
+
+document.documentElement.style.setProperty(`--horLength`, horizontalBoxNum);
+document.documentElement.style.setProperty(`--vertLength`, verticalBoxNum);
+
+//check to see if the mouse is down on every move because the normal
+//mouseup and mousedown events down't always fire, especially if there's
+//gaps between objects
+window.addEventListener("mousemove", checkMouse);
+function checkMouse(e){
+    console.log(e.buttons);
+    if(e.buttons == 0){
+        isMouseDown = false;
+    }
+    if(e.buttons == 1){
+        isMouseDown = true;
+    }
+}
+
 //function that creates a square subdiv with all attached info
 //such as on mouse over = change colour
 function addBox(){
@@ -13,9 +33,8 @@ function addBox(){
     newBox.addEventListener("mouseenter", addHover);
     newBox.addEventListener("mouseleave", removeHover);
     newBox.onmousedown = recolour;
-    newBox.onmouseup = dontColour;
-    //newBox.addEventListener("onclick", recolour);
-    newBox.classList.add("simpleBorder");
+    newBox.setAttribute("draggable", false);
+    newBox.classList.add("simpleBox");
     boxes.push(newBox);
     mainBox.appendChild(newBox);
 }
@@ -34,17 +53,30 @@ function removeHover(e){
 
 function recolour(e){
     this.classList.add("black");
-    isMouseDown = true;
 }
 
-function dontColour(e){
-    isMouseDown = false;
-}
-
+//resets all currently coloured boxes
 function resetBoxes(){
     for(let i = 0; i < boxes.length; i++){
         boxes[i].className = "";
-        boxes[i].classList.add("simpleBorder");
+        boxes[i].classList.add("simpleBox");
+    }
+}
+
+//destroys old boxes and creates new ones according to dimensions
+function createNewBoxes(){
+    while(boxes.length > 0){
+        boxes[0].remove();
+        boxes.shift();
+    }
+    horizontalBoxNum = document.getElementById("horizontal").value;
+    verticalBoxNum = document.getElementById("vertical").value;
+    let multiple = horizontalBoxNum * verticalBoxNum;
+    //update css also
+    document.documentElement.style.setProperty(`--horLength`, horizontalBoxNum);
+    document.documentElement.style.setProperty(`--vertLength`, verticalBoxNum);
+    for(i = 0; i < multiple; i++){
+        addBox();
     }
 }
 
