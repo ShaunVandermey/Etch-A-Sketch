@@ -4,6 +4,7 @@ let boxes = [];
 
 let horizontalBoxNum = 5;
 let verticalBoxNum = 5;
+let boxUpperLimit = 30;
 let initialBoxNum = verticalBoxNum * horizontalBoxNum;
 let isMouseDown = false;
 
@@ -33,6 +34,7 @@ function addBox(){
     newBox.addEventListener("mouseenter", addHover);
     newBox.addEventListener("mouseleave", removeHover);
     newBox.onmousedown = recolour;
+    newBox.addEventListener("ondragstart", dragStart);
     newBox.setAttribute("draggable", false);
     newBox.classList.add("simpleBox");
     boxes.push(newBox);
@@ -63,20 +65,37 @@ function resetBoxes(){
     }
 }
 
+function dragStart(e){
+    e.preventDefault();
+}
+
 //destroys old boxes and creates new ones according to dimensions
 function createNewBoxes(){
-    while(boxes.length > 0){
-        boxes[0].remove();
-        boxes.shift();
-    }
     horizontalBoxNum = document.getElementById("horizontal").value;
     verticalBoxNum = document.getElementById("vertical").value;
-    let multiple = horizontalBoxNum * verticalBoxNum;
-    //update css also
-    document.documentElement.style.setProperty(`--horLength`, horizontalBoxNum);
-    document.documentElement.style.setProperty(`--vertLength`, verticalBoxNum);
-    for(i = 0; i < multiple; i++){
-        addBox();
+    if (isNaN(horizontalBoxNum) || isNaN(verticalBoxNum)){
+        alert("Please ensure that both fields have a number.");
+    }
+    else if (horizontalBoxNum <= 0 || verticalBoxNum <= 0){
+        alert("Please make sure both fields have a number larger than 0.");
+    }
+    else if (horizontalBoxNum > boxUpperLimit || verticalBoxNum > boxUpperLimit){
+        alert("Please ensure that no field is larger than " + boxUpperLimit + ".");
+    }
+    else{
+        //within parameters
+        while(boxes.length > 0){
+            boxes[0].remove();
+            boxes.shift();
+        }
+        
+        let multiple = horizontalBoxNum * verticalBoxNum;
+        //update css also
+        document.documentElement.style.setProperty(`--horLength`, horizontalBoxNum);
+        document.documentElement.style.setProperty(`--vertLength`, verticalBoxNum);
+        for(i = 0; i < multiple; i++){
+            addBox();
+        }
     }
 }
 
