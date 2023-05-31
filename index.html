@@ -10,24 +10,27 @@
 <body>
     <h1>Simple Etch</h1>
     <div class="heroContent">
-        <div class="sidebarLeft vertical spacing">
+        <div class="sidebar vertical spacing">
             <h2>Tools</h2>
             <button onclick="resetBoxes()">Clear all squares</button> 
-            <div class="horizontal">
-                <div>X axis:</div>
-                <input id="horizontal" type="text">
-            </div>
-            <div class="horizontal">
-                <div>Y axis: </div>
-                <input id="vertical" type="text">
+            <div class="horizontal inputs">
+                <div class="horizontal">
+                    <div>X axis:</div>
+                    <input id="horizontal" type="text">
+                </div>
+                <div class="horizontal">
+                    <div>Y axis: </div>
+                    <input id="vertical" type="text">
+                </div>
             </div>
             <button onclick="createNewBoxes()">Apply Size Changes</button>
         </div>
         <div draggable="false" class="mainDrawBoxes"></div>
-        <div class="sidebarRight">
+        <div class="sidebar vertical spacing">
             <h2>Colours</h2>
             <div>Current Colour</div>
             <input type="color" id="colourPicker">
+            <button onclick="eraserMode()">Eraser</button>
         </div>
     </div>
     <script src="script.js" defer></script>

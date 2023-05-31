@@ -54,6 +54,11 @@ function setColour(newColour){
     currentColour = newColour;
 }
 
+function eraserMode(){
+    setColour("#FFFFFF");
+    colourPicker.value = "#FFFFFF";
+}
+
 function addHover(e){
     //change colour of given box to black
     this.classList.add("hovered");

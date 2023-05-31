@@ -10,6 +10,7 @@
 body{
     display: flex;
     flex-direction: column;
+    background-color: rgb(216, 216, 216);
 }
 
 .heroContent{
@@ -18,10 +19,15 @@ body{
     align-items: center;
 }
 
-h1{
+h1, h2{
     display: flex;
     justify-self: center;
     align-self: center;
+}
+
+.sidebar{
+    flex-grow: 0;
+    width: 20%;
 }
 
 .mainDrawBoxes{
@@ -51,7 +57,7 @@ h1{
 .simpleBox{
     /*display: flex;*/
     /*flex: 1;*/
-    background-color: lightgrey;
+    background-color: white;
     width: 96%;
     height: 96%;
     padding: -2%;
@@ -89,7 +95,15 @@ h1{
 
 button{
     border-radius: 8px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
-    background-color: royalblue;
-    color: white;
+    box-shadow: none;
+    background-color: rgb(216, 216, 216);
+    color: black;
+}
+
+.inputs{
+    flex: 1;
+}
+
+input{
+    width: 100%;
 }
