@@ -1,5 +1,6 @@
 const mainBox = document.querySelector(".mainDrawBoxes");
-console.log(mainBox);
+const colourPicker = document.getElementById('colourPicker');
+colourPicker.oninput = (e) => setColour(e.target.value);
 let boxes = [];
 
 let horizontalBoxNum = 5;
@@ -7,6 +8,7 @@ let verticalBoxNum = 5;
 let boxUpperLimit = 30;
 let initialBoxNum = verticalBoxNum * horizontalBoxNum;
 let isMouseDown = false;
+let currentColour = "#000000";
 
 document.documentElement.style.setProperty(`--horLength`, horizontalBoxNum);
 document.documentElement.style.setProperty(`--vertLength`, verticalBoxNum);
@@ -14,6 +16,7 @@ document.documentElement.style.setProperty(`--vertLength`, verticalBoxNum);
 //check to see if the mouse is down on every move because the normal
 //mouseup and mousedown events down't always fire, especially if there's
 //gaps between objects
+/*
 window.addEventListener("mousemove", checkMouse);
 function checkMouse(e){
     console.log(e.buttons);
@@ -24,6 +27,10 @@ function checkMouse(e){
         isMouseDown = true;
     }
 }
+*/
+
+document.body.onmousedown = () => (isMouseDown = true);
+document.body.onmouseup = () => (isMouseDown = false);
 
 //function that creates a square subdiv with all attached info
 //such as on mouse over = change colour
@@ -33,7 +40,9 @@ function addBox(){
     mainBox.classList.add("content");
     newBox.addEventListener("mouseenter", addHover);
     newBox.addEventListener("mouseleave", removeHover);
-    newBox.onmousedown = recolour;
+    //newBox.onmousedown = recolour;
+    newBox.addEventListener("mouseover", recolour);
+    newBox.addEventListener("mousedown", recolour);
     newBox.addEventListener("ondragstart", dragStart);
     newBox.setAttribute("draggable", false);
     newBox.classList.add("simpleBox");
@@ -41,12 +50,18 @@ function addBox(){
     mainBox.appendChild(newBox);
 }
 
+function setColour(newColour){
+    currentColour = newColour;
+}
+
 function addHover(e){
     //change colour of given box to black
     this.classList.add("hovered");
+    /*
     if(isMouseDown == true){
         this.classList.add("black");
     }
+    */
 }
 
 function removeHover(e){
@@ -54,7 +69,11 @@ function removeHover(e){
 }
 
 function recolour(e){
-    this.classList.add("black");
+    if(e.type === "mouseover" && !isMouseDown){   
+        return;
+    }
+    //this.classList.add("black");
+    this.style.backgroundColor = currentColour;
 }
 
 //resets all currently coloured boxes

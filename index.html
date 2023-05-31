@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Draw</title>
+    <title>Simple Etch</title>
     <link rel="stylesheet" href="style.css"></style>
 </head>
 <body>
-    <h1>Simple Draw</h1>
+    <h1>Simple Etch</h1>
     <div class="heroContent">
         <div class="sidebarLeft vertical spacing">
+            <h2>Tools</h2>
             <button onclick="resetBoxes()">Clear all squares</button> 
             <div class="horizontal">
                 <div>X axis:</div>
@@ -24,7 +25,9 @@
         </div>
         <div draggable="false" class="mainDrawBoxes"></div>
         <div class="sidebarRight">
-            <p>This content goes on the right :)</p>
+            <h2>Colours</h2>
+            <div>Current Colour</div>
+            <input type="color" id="colourPicker">
         </div>
     </div>
     <script src="script.js" defer></script>

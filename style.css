@@ -3,6 +3,10 @@
     --vertLength: 10;
 }
 
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -60,6 +64,7 @@ h1{
 }
 
 .hovered{
+    user-select: none;
     border-style: dashed;
     border-color: black;
     border-width: 2px;
@@ -80,4 +85,11 @@ h1{
 .spacing{
     justify-content: space-evenly;
     align-items: space-evenly;
+}
+
+button{
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+    background-color: royalblue;
+    color: white;
 }
