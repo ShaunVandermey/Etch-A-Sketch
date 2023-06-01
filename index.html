@@ -12,26 +12,28 @@
     <div class="heroContent">
         <div class="sidebar vertical spacing">
             <h2>Tools</h2>
-            <button onclick="resetBoxes()">Clear all squares</button> 
+            <button onclick="resetBoxes()">Clear all squares</button>
             <div class="horizontal inputs">
                 <div class="horizontal">
-                    <div>X axis:</div>
+                    <div class="center">Width:</div>
                     <input id="horizontal" type="text">
                 </div>
                 <div class="horizontal">
-                    <div>Y axis: </div>
+                    <div class="center">Height: </div>
                     <input id="vertical" type="text">
                 </div>
+                <button onclick="createNewBoxes()">Apply Size</button>
             </div>
-            <button onclick="createNewBoxes()">Apply Size Changes</button>
-        </div>
-        <div draggable="false" class="mainDrawBoxes"></div>
-        <div class="sidebar vertical spacing">
-            <h2>Colours</h2>
+            
+
+            <h2>Colour</h2>
+            <div class="horizontal">
             <div>Current Colour</div>
-            <input type="color" id="colourPicker">
+                <input type="color" id="colourPicker">
+            </div>
             <button onclick="eraserMode()">Eraser</button>
         </div>
+        <div draggable="false" class="mainDrawBoxes"></div>
     </div>
     <script src="script.js" defer></script>
 </body>

@@ -4,7 +4,7 @@
 }
 
 *{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body{
@@ -19,8 +19,7 @@ body{
     align-items: center;
 }
 
-h1, h2{
-    display: flex;
+h1, h2, .center{
     justify-self: center;
     align-self: center;
 }
@@ -28,6 +27,7 @@ h1, h2{
 .sidebar{
     flex-grow: 0;
     width: 20%;
+    gap: 30px;
 }
 
 .mainDrawBoxes{
@@ -43,20 +43,7 @@ h1, h2{
     height: 720px;
 }
 
-/*
-.simpleBorder{
-    margin: 50px;
-    border-width: 2px;
-    border-color: red;
-    background-color: blue;
-    width: 100px;
-    height: 100px;
-}
-*/
-
 .simpleBox{
-    /*display: flex;*/
-    /*flex: 1;*/
     background-color: white;
     width: 96%;
     height: 96%;
@@ -89,7 +76,7 @@ h1, h2{
 }
 
 .spacing{
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: space-evenly;
 }
 
