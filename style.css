@@ -94,3 +94,21 @@ button{
 input{
     width: 100%;
 }
+
+/* FOOTER */
+
+.footer{
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding: 20px 0px;
+}
+
+a{
+    color: lightblue;
+}
