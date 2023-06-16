@@ -100,13 +100,15 @@ input{
 .footer{
     text-align: center;
     vertical-align: middle;
-    background-color: rgb(30, 30, 30);
+    background-color: rgb(80, 80, 80);
     color: white;
     width: 100%;
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 5vh;
     padding: 20px 0px;
+    justify-self: flex-end;
 }
 
 a{
