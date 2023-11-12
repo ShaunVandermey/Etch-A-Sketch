@@ -11,6 +11,9 @@ body{
     display: flex;
     flex-direction: column;
     background-color: rgb(216, 216, 216);
+    height: 100vh;
+    margin: 0;
+    justify-content: space-between;
 }
 
 .heroContent{
@@ -81,7 +84,7 @@ h1, h2, .center{
 }
 
 button{
-    border-radius: 8px;
+    border-radius: 6px;
     box-shadow: none;
     background-color: rgb(216, 216, 216);
     color: black;
