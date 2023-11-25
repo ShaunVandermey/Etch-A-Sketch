@@ -72,8 +72,9 @@ function recolour(e){
 //resets all currently coloured boxes
 function resetBoxes(){
     for(let i = 0; i < boxes.length; i++){
-        boxes[i].className = "";
-        boxes[i].classList.add("simpleBox");
+        //boxes[i].className = "";
+        //boxes[i].classList.add("simpleBox");
+        boxes[i].style.backgroundColor = "#FFFFFF";
     }
 }
 
